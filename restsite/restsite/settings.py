@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'booktest',
     'shoptest',
+    'serializertest',
+    'viewtest',
     'rest_framework',
 ]
 

@@ -18,13 +18,16 @@ from django.urls import path
 from django.conf.urls import url,include
 from booktest.views import *
 from shoptest.views import *
+from serializertest.views import *
 from rest_framework import routers
 router = routers.DefaultRouter()
 router.register('books', BookViewSet)
 router.register('heros', HeroViewSet)
 router.register('goods', GoodViewSet)
 router.register('carts', CartViewSet)
+router.register('serializers',SerializerModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('',include(router.urls))
+    url('',include(router.urls)),
+    url('',include('viewtest.urls'))
 ]
