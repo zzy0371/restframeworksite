@@ -16,7 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
+from booktest.views import *
+from shoptest.views import *
+from rest_framework import routers
+router = routers.DefaultRouter()
+router.register('books', BookViewSet)
+router.register('heros', HeroViewSet)
+router.register('goods', GoodViewSet)
+router.register('carts', CartViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('',include('booktest.urls')),
+    url('',include(router.urls))
 ]
