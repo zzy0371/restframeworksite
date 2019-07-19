@@ -18,6 +18,7 @@ from django.urls import path
 from django.conf.urls import url,include
 from booktest.views import *
 from shoptest.views import *
+from authtest.views import *
 from serializertest.views import *
 from rest_framework import routers
 router = routers.DefaultRouter()
@@ -26,8 +27,15 @@ router.register('heros', HeroViewSet)
 router.register('goods', GoodViewSet)
 router.register('carts', CartViewSet)
 router.register('serializers',SerializerModelViewSet)
+router.register('auths',AuthModelViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('',include(router.urls)),
     url('',include('viewtest.urls'))
+]
+
+# 绑定之后才可以有授权登录功能
+urlpatterns += [
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
 ]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'shoptest',
     'serializertest',
     'viewtest',
+    'authtest',
     'rest_framework',
 ]
 
