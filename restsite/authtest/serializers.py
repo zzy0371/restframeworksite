@@ -3,4 +3,4 @@ from .models import *
 class AuthModelSerializers(serializers.ModelSerializer):
     class Meta:
         model = AuthModel
-        fields = ["title","user"]
+        fields = ["title","user","url"]

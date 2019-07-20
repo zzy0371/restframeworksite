@@ -19,6 +19,7 @@ from django.conf.urls import url,include
 from booktest.views import *
 from shoptest.views import *
 from authtest.views import *
+from routertest.views import *
 from serializertest.views import *
 from rest_framework import routers
 router = routers.DefaultRouter()
@@ -28,10 +29,12 @@ router.register('goods', GoodViewSet)
 router.register('carts', CartViewSet)
 router.register('serializers',SerializerModelViewSet)
 router.register('auths',AuthModelViewSet)
+router.register('zoos',ZooViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('',include(router.urls)),
-    url('',include('viewtest.urls'))
+    url('',include('viewtest.urls')),
+    # url('',include('routertest.urls')),
 ]
 
 # 绑定之后才可以有授权登录功能

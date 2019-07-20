@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'serializertest',
     'viewtest',
     'authtest',
+    'routertest',
     'rest_framework',
 ]
 

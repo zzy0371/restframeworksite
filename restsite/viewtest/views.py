@@ -91,8 +91,6 @@ class ViewModelDetailView(APIView):
 """
 基于视图函数
 """
-
-
 @api_view(["GET","POST"])
 def viewmodelslist(request,format=None):
     if request.method == "GET":
