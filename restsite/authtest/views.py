@@ -12,3 +12,17 @@ class AuthModelViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly)
     queryset = AuthModel.objects.all()
     serializer_class = AuthModelSerializers
+
+
+
+# 留作JWT授权
+from django.contrib.auth.backends import ModelBackend
+from django.contrib.auth.models import User
+class CustomBackend(ModelBackend):
+    def authenticate(self, request, username=None, password=None, **kwargs):
+        try:
+            user = User.objects.get(username=username)
+            if user.check_password(password):
+                return user
+        except:
+            return None
